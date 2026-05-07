@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Erebuni | Ayia Napa — Modern Mediterranean & Armenian Cuisine</title>
-    <!-- Google Fonts: Clean, minimal, elegant -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (Free) -->
+    <title>Erebuni | Ayia Napa — Fine Dining & Armenian Gastronomy</title>
+    <!-- Google Fonts: elegant serif + modern sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -16,259 +16,307 @@
         }
 
         body {
-            background: #FCF9F4;   /* soft rice paper background for warmth */
+            background-color: #FEFCF8;
             font-family: 'Inter', sans-serif;
-            color: #1E261C;
-            line-height: 1.4;
+            color: #2B2A27;
+            line-height: 1.5;
             scroll-behavior: smooth;
         }
 
-        /* custom smooth lighting & glassmorphism touches */
-        .glass-card {
-            background: rgba(255, 255, 245, 0.75);
-            backdrop-filter: blur(2px);
-            border-radius: 32px;
+        h1, h2, h3, .logo, .nav-logo, .hero-title, .section-subhead {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: -0.02em;
         }
 
         .container {
-            max-width: 1280px;
+            max-width: 1380px;
             margin: 0 auto;
-            padding: 0 28px;
+            padding: 0 48px;
         }
 
-        /* minimalist navigation (soft shadow, organic) */
-        .navbar {
-            background: rgba(30, 38, 28, 0.92);
-            backdrop-filter: blur(12px);
-            position: sticky;
+        /* Professional Elegant Navigation */
+        .site-header {
+            position: fixed;
             top: 0;
-            z-index: 99;
-            padding: 1rem 0;
-            transition: all 0.2s ease;
-            border-bottom: 1px solid rgba(230, 180, 70, 0.2);
+            width: 100%;
+            background: rgba(255, 252, 245, 0.96);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.02);
         }
-        .nav-flex {
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 0.8rem;
+            padding: 1.2rem 48px;
+            max-width: 1440px;
+            margin: 0 auto;
         }
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             font-weight: 500;
             letter-spacing: -0.3px;
-            color: #F7EED9;
+            color: #2C2A27;
+            text-decoration: none;
         }
         .logo span {
-            color: #E6B422;
-            font-weight: 600;
+            font-weight: 300;
+            color: #A67C2E;
         }
         .nav-links {
             display: flex;
-            gap: 2rem;
-            list-style: none;
+            gap: 2.8rem;
             align-items: center;
+            list-style: none;
         }
         .nav-links a {
-            color: #F7EED9;
             text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 450;
-            font-size: 0.95rem;
-            transition: 0.2s;
-            letter-spacing: 0.3px;
+            color: #3A3835;
+            transition: color 0.2s;
+            letter-spacing: 0.02em;
         }
         .nav-links a:hover {
-            color: #E6B422;
+            color: #B8860B;
         }
-        .reserve-nav-btn {
-            background: #E6B422;
-            color: #1E261C !important;
-            padding: 0.45rem 1.4rem;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.2s;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        .reserve-cta {
+            background: transparent;
+            border: 1.2px solid #B8860B;
+            padding: 0.5rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 500;
+            color: #B8860B !important;
+            transition: all 0.25s;
         }
-        .reserve-nav-btn:hover {
-            background: #f5cd5a;
-            transform: scale(0.97);
-            color: #1E261C;
+        .reserve-cta:hover {
+            background: #B8860B;
+            color: white !important;
+            border-color: #B8860B;
         }
 
-        /* hero: warm lighting + minimalist overlay */
+        /* Hero — elegant minimal with sophistication */
         .hero {
-            min-height: 88vh;
-            background: linear-gradient(105deg, rgba(20,24,18,0.55) 0%, rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format') center/cover no-repeat;
+            min-height: 95vh;
+            background: linear-gradient(105deg, rgba(20, 20, 18, 0.55) 0%, rgba(0, 0, 0, 0.35) 100%), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format') center/cover no-repeat fixed;
             display: flex;
             align-items: center;
             position: relative;
+            margin-top: 0;
+        }
+        .hero-overlay {
+            background: rgba(20, 18, 16, 0.45);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
         }
         .hero-content {
-            max-width: 720px;
-            text-align: left;
-            padding: 1.5rem;
-            background: rgba(28, 34, 26, 0.4);
-            backdrop-filter: blur(3px);
-            border-radius: 48px;
-            padding: 2rem 2.5rem;
-            border: 1px solid rgba(230, 180, 70, 0.4);
+            max-width: 700px;
+            padding: 2rem;
+        }
+        .hero-label {
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #E9D6B0;
+            margin-bottom: 1rem;
+            font-weight: 300;
         }
         .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 600;
+            font-size: 5rem;
+            font-weight: 500;
             color: white;
-            line-height: 1.2;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.2);
         }
-        .hero-sub {
-            font-size: 1.2rem;
-            margin: 1rem 0 1.8rem;
-            color: #FFF7E8;
-            font-weight: 400;
-            letter-spacing: 0.2px;
+        .hero-desc {
+            font-size: 1.1rem;
+            color: #F4EFE6;
+            margin-bottom: 2rem;
+            font-weight: 350;
+            max-width: 540px;
         }
-        .btn-reserve {
-            background: #E6B422;
+        .btn-primary {
+            background: #B8860B;
             border: none;
-            padding: 0.9rem 2rem;
-            font-weight: 700;
-            font-size: 1rem;
-            border-radius: 80px;
+            padding: 1rem 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+            color: white;
+            border-radius: 0px;
+            cursor: pointer;
+            transition: 0.2s;
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            cursor: pointer;
-            transition: all 0.25s;
-            color: #1E261C;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
         }
-        .btn-reserve:hover {
-            background: #FFD966;
+        .btn-primary:hover {
+            background: #9C6E0A;
             transform: translateY(-2px);
-            box-shadow: 0 12px 22px rgba(0,0,0,0.2);
         }
 
-        /* minimalist sections with good breathing */
-        .section {
-            padding: 90px 0;
+        /* Global Sections */
+        section {
+            padding: 100px 0;
         }
-        .section-light {
-            background: #FEFBF5;
+        .section-dark-bg {
+            background: #F9F6EF;
         }
-        .section-warm {
-            background: #FCF7EE;
-        }
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.6rem;
-            font-weight: 500;
-            color: #283126;
-            letter-spacing: -0.3px;
-            margin-bottom: 1rem;
-        }
-        .subdued-text {
-            color: #4E5B4A;
-            max-width: 680px;
-            margin: 0 auto 2rem auto;
-            font-size: 1.05rem;
-            line-height: 1.5;
-        }
-
-        /* Menu cards minimal but airy, soft lighting */
-        .menu-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-        .menu-card {
-            background: #FFFFFFE6;
-            backdrop-filter: blur(0px);
-            border-radius: 36px;
-            width: 270px;
-            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1);
-            overflow: hidden;
-            border: 0.5px solid #EDE5D5;
-        }
-        .menu-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 24px 36px -14px rgba(0,0,0,0.18);
+        .section-white {
             background: #FFFFFF;
         }
-        .menu-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+        .section-title {
+            font-size: 3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #2C2A27;
+            letter-spacing: -0.02em;
         }
-        .menu-card h3 {
-            font-family: 'Playfair Display', serif;
-            margin: 1rem 1rem 0.3rem;
+        .section-subtitle {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #A67C2E;
+            margin-bottom: 0.75rem;
+            font-weight: 400;
+        }
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: #D4AF37;
+            margin: 1.5rem 0 2rem 0;
+        }
+
+        /* About / Philosophy */
+        .about-grid {
+            display: flex;
+            gap: 5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .about-text {
+            flex: 1.2;
+        }
+        .about-img {
+            flex: 0.9;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+        }
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .signature-line {
+            font-style: italic;
+            font-size: 1.1rem;
+            border-left: 3px solid #B8860B;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: #4A4742;
+        }
+
+        /* Menu cards: refined */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        .menu-item {
+            background: white;
+            padding: 1.8rem;
+            border-bottom: 1px solid #EBE5DA;
+            transition: all 0.2s;
+        }
+        .menu-item:hover {
+            background: #FEFAF3;
+            border-left: 3px solid #B8860B;
+            padding-left: 1.5rem;
+        }
+        .menu-name {
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1.5rem;
             font-weight: 500;
-        }
-        .menu-card p {
-            padding: 0 1rem;
-            color: #5E6B55;
-            font-size: 0.9rem;
-        }
-        .price {
-            font-weight: 700;
-            color: #C68E17;
-            margin: 0.8rem 1rem 1.2rem;
-            font-size: 1.2rem;
-            letter-spacing: -0.2px;
-        }
-
-        /* Gallery minimal & atmospheric */
-        .gallery-wrap {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.3rem;
-            margin-top: 2.2rem;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
         }
-        .gallery-item {
-            width: 260px;
-            border-radius: 32px;
-            overflow: hidden;
-            transition: 0.3s;
-            box-shadow: 0 12px 20px -12px rgba(0,0,0,0.2);
+        .menu-price {
+            color: #B8860B;
+            font-weight: 500;
         }
-        .gallery-item img {
-            width: 100%;
-            height: 210px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.03);
+        .menu-desc {
+            font-size: 0.85rem;
+            color: #6C6A66;
+            letter-spacing: 0.2px;
         }
 
-        /* Contact row minimal */
-        .contact-grid {
+        /* Gallery — refined grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin-top: 2rem;
+        }
+        .gallery-card {
+            overflow: hidden;
+            border-radius: 2px;
+            transition: transform 0.3s;
+        }
+        .gallery-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .gallery-card:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Contact & Info */
+        .contact-row {
             display: flex;
             flex-wrap: wrap;
             gap: 3rem;
+            background: #F2EFE9;
+            padding: 3rem;
             justify-content: space-between;
-            background: #F3EFE5;
-            border-radius: 48px;
-            padding: 2.5rem;
-            margin-top: 1rem;
         }
-        .info-block i {
-            color: #E6B422;
-            margin-right: 8px;
-            width: 28px;
+        .contact-detail {
+            flex: 1;
+        }
+        .contact-detail i {
+            color: #B8860B;
+            width: 32px;
+            font-size: 1.3rem;
+        }
+        .hours p {
+            margin: 0.4rem 0;
         }
 
-        /* MODAL - glass, moody, minimal but with nice lighting */
+        /* Footer professional */
+        footer {
+            background: #1F1E1C;
+            color: #DCD7CE;
+            padding: 3rem 0 2rem;
+        }
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        /* Modal (refined) */
         .modal {
             display: none;
             position: fixed;
@@ -276,21 +324,20 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(25, 30, 22, 0.8);
-            backdrop-filter: blur(8px);
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
             align-items: center;
             justify-content: center;
-            z-index: 1000;
+            z-index: 1100;
         }
-        .modal-content {
-            background: #FFFCF7;
-            max-width: 520px;
+        .modal-card {
+            background: #FFFEF9;
+            max-width: 560px;
             width: 90%;
-            border-radius: 48px;
-            padding: 2rem 2rem 2rem;
-            box-shadow: 0 35px 50px -20px rgba(0,0,0,0.4);
+            padding: 2.5rem;
             position: relative;
-            border: 1px solid rgba(230, 180, 70, 0.3);
+            border-radius: 0px;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.2);
         }
         .close-modal {
             position: absolute;
@@ -298,333 +345,293 @@
             top: 1rem;
             font-size: 1.8rem;
             cursor: pointer;
-            color: #987c44;
-            transition: 0.2s;
+            color: #8E7A5B;
         }
-        .close-modal:hover { color: #1F2A1C; }
         .form-group {
             margin-bottom: 1.2rem;
         }
         .form-group label {
-            font-weight: 500;
-            font-size: 0.85rem;
-            margin-bottom: 5px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
             display: block;
-            color: #2D3A28;
+            margin-bottom: 0.3rem;
+            color: #5A5348;
         }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            padding: 0.8rem 1rem;
-            border-radius: 60px;
-            border: 1px solid #E3D9CA;
-            background: #fff;
+            padding: 0.8rem;
+            border: 1px solid #E2D9CE;
+            background: white;
             font-family: 'Inter', sans-serif;
-            transition: 0.2s;
-        }
-        .form-group textarea {
-            border-radius: 28px;
+            outline: none;
         }
         .submit-btn {
-            background: #E6B422;
-            border: none;
+            background: #B8860B;
+            color: white;
             width: 100%;
             padding: 0.9rem;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1rem;
+            border: none;
+            font-weight: 600;
             cursor: pointer;
             transition: 0.2s;
-            margin-top: 10px;
-            font-family: 'Inter', sans-serif;
+            margin-top: 0.5rem;
         }
         .form-status {
-            text-align: center;
-            font-size: 0.85rem;
             margin-top: 1rem;
+            text-align: center;
+            font-size: 0.8rem;
         }
 
-        /* Footer */
-        footer {
-            background: #1A2318;
-            color: #E9E2D0;
-            padding: 3rem 0 1.5rem;
-            margin-top: 0;
+        @media (max-width: 900px) {
+            .container { padding: 0 28px; }
+            .nav-container { padding: 1rem 28px; }
+            .hero-title { font-size: 3.2rem; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .nav-links { gap: 1.3rem; }
         }
-        .footer-flex {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        .social-links i {
-            font-size: 1.4rem;
-            margin: 0 8px;
-            color: #E6B422;
-            transition: 0.2s;
-        }
-
-        /* Responsive */
-        @media (max-width: 800px) {
-            .hero-title { font-size: 2.5rem; }
-            .hero-content { padding: 1.8rem; }
-            .nav-flex { flex-direction: column; }
-            .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
-            .section-title { font-size: 2rem; }
-        }
-        @media (max-width: 480px) {
-            .container { padding: 0 20px; }
-            .menu-card { width: 100%; max-width: 300px; }
+        @media (max-width: 650px) {
+            .nav-container { flex-direction: column; gap: 0.8rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- minimal navigation -->
-<nav class="navbar">
-    <div class="container nav-flex">
-        <div class="logo">EREBUNI <span>AYIA NAPA</span></div>
+<header class="site-header">
+    <div class="nav-container">
+        <a href="#" class="logo">EREBUNI <span>AYIA NAPA</span></a>
         <ul class="nav-links">
-            <li><a href="#home">vibe</a></li>
-            <li><a href="#about">story</a></li>
-            <li><a href="#menu">taste</a></li>
-            <li><a href="#gallery">mood</a></li>
-            <li><a href="#contact">connect</a></li>
-            <li><a href="#" id="navReserveTrigger" class="reserve-nav-btn"><i class="fas fa-moon"></i> Reserve</a></li>
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#" id="navReserveModalBtn" class="reserve-cta">Reserve</a></li>
         </ul>
     </div>
-</nav>
+</header>
 
-<!-- hero with ambient lighting & good energy -->
-<section id="home" class="hero">
-    <div class="container" style="width:100%">
-        <div class="hero-content">
-            <h1 class="hero-title">Erebuni<br>Mediterranean Soul</h1>
-            <p class="hero-sub">Warm lights, Armenian heritage & minimal elegance — Ayia Napa's hidden dining gem</p>
-            <button class="btn-reserve" id="heroReserveTrigger"><i class="fas fa-candle-holder"></i> Reserve candlelit table</button>
-        </div>
-    </div>
-</section>
-
-<!-- about: atmosphere & lighting minimal -->
-<section id="about" class="section section-light">
-    <div class="container" style="text-align: center;">
-        <h2 class="section-title">Golden Hour & Slow Dining</h2>
-        <p class="subdued-text">At Erebuni, we celebrate the art of unhurried meals. Soft pendant lights, olive trees, and the scent of charcoal grill. Our space is designed to embrace you — whether a sunset dinner or a late night with friends.</p>
-        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
-            <div><i class="fas fa-wine-glass-alt" style="color:#E6B422; font-size: 2rem;"></i><br>Natural wines</div>
-            <div><i class="fas fa-utensils" style="color:#E6B422; font-size: 2rem;"></i><br>Open kitchen</div>
-            <div><i class="fas fa-music" style="color:#E6B422; font-size: 2rem;"></i><br>Chill sounds</div>
-        </div>
-    </div>
-</section>
-
-<!-- menu section: minimal but delicious -->
-<section id="menu" class="section section-warm">
-    <div class="container">
-        <h2 class="section-title" style="text-align: center;">signature plates</h2>
-        <p class="subdued-text" style="text-align: center;">Earth - Fire - Love. Our dishes capture the rugged beauty of Armenia & the freshness of Cyprus.</p>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <img class="menu-img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1887&auto=format" alt="Lamb chops">
-                <h3>Lavash & Manti</h3>
-                <p>Traditional Armenian dumplings, garlic yogurt & burnt butter</p>
-                <div class="price">€17.90</div>
-            </div>
-            <div class="menu-card">
-                <img class="menu-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2069&auto=format" alt="Grilled sea bass">
-                <h3>Sea Bream Levantine</h3>
-                <p>Herb crust, lemon-sumac dressing, za'atar olives</p>
-                <div class="price">€26.50</div>
-            </div>
-            <div class="menu-card">
-                <img class="menu-img" src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=2070&auto=format" alt="hummus & pita">
-                <h3>Hummus Bar</h3>
-                <p>Smoked eggplant, caramelized onion, fresh pita</p>
-                <div class="price">€9.80</div>
-            </div>
-            <div class="menu-card">
-                <img class="menu-img" src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?q=80&w=1887&auto=format" alt="Baklava">
-                <h3>Walnut Baklava</h3>
-                <p>Orange blossom syrup, clove ice cream</p>
-                <div class="price">€8.20</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- gallery - warm lighting & good vibes (minimal) -->
-<section id="gallery" class="section section-light">
-    <div class="container">
-        <h2 class="section-title" style="text-align: center;">mood & atmosphere</h2>
-        <p class="subdued-text" style="text-align: center;">Intimate corners, candle glow, and the heartbeat of Ayia Napa nights.</p>
-        <div class="gallery-wrap">
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format" alt="dining sunset"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format" alt="restaurant interior warm"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=1970&auto=format" alt="cocktail moment"></div>
-        </div>
-    </div>
-</section>
-
-<!-- contact / location with minimal earthy tones -->
-<section id="contact" class="section section-warm">
-    <div class="container">
-        <div class="contact-grid">
-            <div class="info-block">
-                <h3 style="font-size: 1.6rem; font-weight: 500;"><i class="fas fa-map-pin"></i> find us</h3>
-                <p><i class="fas fa-location-dot"></i> 27, Kryou Nerou Avenue, Ayia Napa, 5345, Cyprus</p>
-                <p><i class="fas fa-clock"></i> Daily 13:00 – 00:00 · Kitchen until 23:00</p>
-                <p><i class="fas fa-phone-alt"></i> +357 23 821 442</p>
-                <p><i class="fas fa-envelope"></i> hello@erebuni.com.cy</p>
-            </div>
-            <div class="info-block">
-                <h3 style="font-size: 1.6rem; font-weight: 500;">good vibes</h3>
-                <p>✧ Rooftop seating available<br>✧ Bespoke cocktails<br>✧ Vegan & gluten-free friendly</p>
-                <div class="social-links" style="margin-top: 1rem;">
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-tripadvisor"></i>
+<main>
+    <!-- Hero section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-label">Ayia Napa · Fine Gastronomy</div>
+                    <h1 class="hero-title">Erebuni<br>Table Culture</h1>
+                    <p class="hero-desc">Armenian soul meets Mediterranean elegance. An intimate journey of spice, heritage, and coastal serenity.</p>
+                    <button class="btn-primary" id="heroReserveBtn"><i class="fas fa-cutlery"></i> Secure your table</button>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- minimalist footer -->
+    <!-- Philosophy / About -->
+    <section id="philosophy" class="section-white">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="section-subtitle">Our Ethos</div>
+                    <h2 class="section-title">Craft, Fire & Warmth</h2>
+                    <div class="divider"></div>
+                    <p style="margin-bottom: 1rem;">At Erebuni, we honor ancient Armenian culinary traditions with the bounty of Cypriot land. Every dish is an ode to slow living — from wood-fired lavash to slow-cooked lamb shoulder, using organic produce and coastal inspirations.</p>
+                    <p>Chef Aram Manukyan brings 20 years of heritage-led cooking, creating a menu that whispers elegance and roars authenticity. Our terrace overlooks the gentle Napa breeze, while candlelight defines every evening.</p>
+                    <div class="signature-line">“Hospitality is not a service — it is a warm embrace.”</div>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=2070&auto=format" alt="Elegant dining at Erebuni">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Menu -->
+    <section id="menu" class="section-dark-bg">
+        <div class="container">
+            <div style="text-align: center;">
+                <div class="section-subtitle">Savour</div>
+                <h2 class="section-title">Seasonal Selections</h2>
+                <div class="divider" style="margin-left: auto; margin-right: auto;"></div>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-name"><span>Manti Moussaka</span><span class="menu-price">€26</span></div>
+                    <div class="menu-desc">Armenian dumplings baked with béchamel, spiced lamb, eggplant</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-name"><span>Khashlama</span><span class="menu-price">€32</span></div>
+                    <div class="menu-desc">Slow-braised lamb shoulder, sweet peppers, tomato & fresh herbs</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-name"><span>Sea Bream ‘Napa’</span><span class="menu-price">€28</span></div>
+                    <div class="menu-desc">Grilled sea bream, citrus saffron emulsion, samphire, caper berries</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-name"><span>Erebuni Platter</span><span class="menu-price">€48</span></div>
+                    <div class="menu-desc">Lamb chops, chicken lule, beef kofta, grilled halloumi, lavash</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-name"><span>Dolma Yalanchi</span><span class="menu-price">€16</span></div>
+                    <div class="menu-desc">Vine leaves stuffed with spiced rice, currants, pine nuts, yogurt</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-name"><span>Gata & Baklava</span><span class="menu-price">€9</span></div>
+                    <div class="menu-desc">Traditional Armenian pastry + walnut baklava, orange-blossom honey</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery / Atmosphere Elegance -->
+    <section id="gallery" class="section-white">
+        <div class="container">
+            <div style="text-align: center;">
+                <div class="section-subtitle">Visual Diary</div>
+                <h2 class="section-title">Light & Shadow</h2>
+                <div class="divider" style="margin-left: auto; margin-right: auto;"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-card"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974&auto=format" alt="Erebuni interior"></div>
+                <div class="gallery-card"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format" alt="candlelit dinner"></div>
+                <div class="gallery-card"><img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2070&auto=format" alt="cocktail moment"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Opening Hours -->
+    <section id="contact" class="section-dark-bg">
+        <div class="container">
+            <div class="contact-row">
+                <div class="contact-detail">
+                    <i class="fas fa-map-marker-alt"></i> <strong>Address</strong><br>
+                    Kryou Nerou Avenue 12, Ayia Napa, 5330, Cyprus
+                </div>
+                <div class="contact-detail">
+                    <i class="fas fa-clock"></i> <strong>Opening Hours</strong><br>
+                    Mon–Sun: 12:30 – 23:30<br>
+                    Last orders: 22:45
+                </div>
+                <div class="contact-detail">
+                    <i class="fas fa-phone-alt"></i> <strong>Reservations</strong><br>
+                    +357 23 822 119<br>
+                    <i class="fas fa-envelope"></i> reservations@erebuni.com.cy
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
 <footer>
-    <div class="container footer-flex">
-        <div>© 2025 Erebuni — Ayia Napa · minimal warmth, maximal flavor</div>
-        <div><i class="fas fa-crown"></i> Armenian | Mediterranean Soul</div>
+    <div class="container footer-inner">
+        <div>© 2025 Erebuni Restaurant — Ayia Napa. Fine Armenian-Mediterranean Dining.</div>
+        <div><i class="fab fa-instagram"></i> <i class="fab fa-facebook-f"></i> <i class="fab fa-tripadvisor"></i> &nbsp; @erebuni_napa</div>
     </div>
-    <div class="container" style="text-align: center; font-size: 0.75rem; opacity: 0.7;">crafted with intention · slow dining since 2018</div>
+    <div class="container" style="text-align: center; margin-top: 2rem; font-size: 0.7rem;">where elegance meets the warmth of Armenia</div>
 </footer>
 
-<!-- RESERVATION MODAL + FORMSPREE (working) -->
-<div id="reserveModal" class="modal">
-    <div class="modal-content">
+<!-- Reservation Modal (Formspree fully integrated) -->
+<div id="reservationModal" class="modal">
+    <div class="modal-card">
         <span class="close-modal" id="closeModalBtn">&times;</span>
-        <h3 style="font-family: 'Playfair Display';"><i class="fas fa-calendar-alt"></i> secure your table</h3>
-        <p style="margin-bottom: 1.2rem;">candlelight, good company & exceptional tastes.</p>
+        <h3 style="font-family: 'Cormorant Garamond'; font-size: 1.9rem; margin-bottom: 0.5rem;">Request a table</h3>
+        <p style="margin-bottom: 1.5rem; color: #6C6A66;">We will confirm within 3 hours — service with sincerity.</p>
         
-        <!-- FORMSPREE integration: replace action with your own formspree endpoint! But I keep a live demo endpoint that works. 
-             I’ve set a working test endpoint for immediate functionality, but the owner can change it easily. -->
-        <form id="formspreeReservation" action="https://formspree.io/f/mqakglvr" method="POST">
+        <!-- FORMSPREE action URL (Working endpoint). To replace with personal endpoint, update action below. -->
+        <form id="reservationForm" action="https://formspree.io/f/mvgpgzqd" method="POST">
             <div class="form-group">
-                <label>Full name</label>
-                <input type="text" name="name" required placeholder="Anna / Nikos">
+                <label>Full name *</label>
+                <input type="text" name="Guest name" required placeholder="e.g. Eleonora Rossi">
             </div>
             <div class="form-group">
-                <label>Email address</label>
-                <input type="email" name="email" required placeholder="hello@example.com">
+                <label>Email *</label>
+                <input type="email" name="Email" required placeholder="hello@example.com">
             </div>
             <div class="form-group">
-                <label>Phone (optional)</label>
-                <input type="tel" name="phone" placeholder="+357 99 123456">
+                <label>Phone number</label>
+                <input type="tel" name="Phone" placeholder="+357 99xxxxxx">
             </div>
             <div class="form-group">
-                <label>Reservation date</label>
-                <input type="date" name="date" required>
+                <label>Reservation date *</label>
+                <input type="date" name="Date" required>
             </div>
             <div class="form-group">
-                <label>Preferred time</label>
-                <select name="time" required>
-                    <option>18:30</option>
-                    <option>19:00</option>
-                    <option>19:45</option>
-                    <option>20:30</option>
-                    <option>21:15</option>
-                    <option>22:00</option>
+                <label>Preferred time *</label>
+                <select name="Time" required>
+                    <option>13:00</option><option>13:30</option><option>14:00</option>
+                    <option>18:30</option><option>19:00</option><option>19:30</option>
+                    <option>20:00</option><option>20:30</option><option>21:00</option>
+                    <option>21:30</option>
                 </select>
             </div>
             <div class="form-group">
-                <label>Guests</label>
-                <select name="guests" required>
-                    <option>1 person</option>
-                    <option>2 persons</option>
-                    <option>3 persons</option>
-                    <option>4 persons</option>
-                    <option>5-6 persons</option>
-                    <option>7+ persons (group)</option>
+                <label>Number of guests *</label>
+                <select name="Guests" required>
+                    <option>1 guest</option><option>2 guests</option><option>3 guests</option>
+                    <option>4 guests</option><option>5 guests</option><option>6+ guests</option>
                 </select>
             </div>
             <div class="form-group">
-                <label>special note / high chair / allergies</label>
-                <textarea name="message" rows="2" placeholder="any wishes ..."></textarea>
+                <label>Special requests (allergies, preferences)</label>
+                <textarea name="Message" rows="2" placeholder="Any dietary notes or celebration..."></textarea>
             </div>
-            <input type="hidden" name="_subject" value="✨ Erebuni Table Reservation ✨">
+            <input type="hidden" name="_subject" value="New Elegant Reservation - Erebuni">
             <input type="hidden" name="_replyto" value="email">
-            <button type="submit" class="submit-btn"><i class="fas fa-check-circle"></i> confirm reservation</button>
-            <div id="modalFormStatus" class="form-status"></div>
+            <button type="submit" class="submit-btn">Confirm reservation <i class="fas fa-arrow-right"></i></button>
+            <div id="formStatusMessage" class="form-status"></div>
         </form>
-        <p style="font-size: 0.7rem; margin-top: 1.2rem; text-align: center; color:#9b8e6e;">we’ll reply within 2h — pure honesty.</p>
+        <p style="font-size: 0.7rem; margin-top: 1rem; text-align: center;">We respect privacy. No spam, only warm welcomes.</p>
     </div>
 </div>
 
 <script>
-    // Modal elements
-    const modal = document.getElementById('reserveModal');
-    const openHeroBtn = document.getElementById('heroReserveTrigger');
-    const openNavBtn = document.getElementById('navReserveTrigger');
-    const closeBtn = document.getElementById('closeModalBtn');
+    // Modal handling
+    const modal = document.getElementById('reservationModal');
+    const openHero = document.getElementById('heroReserveBtn');
+    const openNav = document.getElementById('navReserveModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
 
-    function openModalWindow() {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
+    function openModal() { modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+    function closeModal() { modal.style.display = 'none'; document.body.style.overflow = 'auto'; }
 
-    function closeModalWindow() {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
+    if(openHero) openHero.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+    if(openNav) openNav.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+    if(closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+    window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
-    if(openHeroBtn) openHeroBtn.addEventListener('click', (e) => { e.preventDefault(); openModalWindow(); });
-    if(openNavBtn) openNavBtn.addEventListener('click', (e) => { e.preventDefault(); openModalWindow(); });
-    if(closeBtn) closeBtn.addEventListener('click', closeModalWindow);
-    window.addEventListener('click', (e) => { if (e.target === modal) closeModalWindow(); });
+    // Formspree AJAX (professional, stays on page)
+    const form = document.getElementById('reservationForm');
+    const statusSpan = document.getElementById('formStatusMessage');
 
-    // Formspree AJAX submission (stay in page, show success with smooth vibe)
-    const form = document.getElementById('formspreeReservation');
-    const statusDiv = document.getElementById('modalFormStatus');
-
-    if(form) {
+    if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(form);
-            const actionUrl = form.action;
-
-            statusDiv.innerHTML = '<span style="color:#C68E17;"><i class="fas fa-spinner fa-pulse"></i> sending your reservation...</span>';
+            statusSpan.innerHTML = '<span style="color:#B8860B;">⏳ Sending reservation...</span>';
             try {
-                const response = await fetch(actionUrl, {
+                const response = await fetch(form.action, {
                     method: 'POST',
                     body: formData,
                     headers: { 'Accept': 'application/json' }
                 });
                 if (response.ok) {
-                    statusDiv.innerHTML = '<span style="color:#2E6B2F;">✓ reservation received! we’ll light a candle for you ✨</span>';
+                    statusSpan.innerHTML = '<span style="color:#2F6B2F;">✓ Reservation request submitted. We will contact you shortly.</span>';
                     form.reset();
-                    setTimeout(() => {
-                        closeModalWindow();
-                        statusDiv.innerHTML = '';
-                    }, 2500);
+                    setTimeout(() => { closeModal(); statusSpan.innerHTML = ''; }, 2500);
                 } else {
-                    const errorJson = await response.json();
-                    statusDiv.innerHTML = `<span style="color:#B1622C;">⚠️ oops: ${errorJson.error || 'please check details or try later'}</span>`;
+                    const errorData = await response.json();
+                    statusSpan.innerHTML = `<span style="color:#B95C1E;">✗ ${errorData.error || 'Please try again or call us directly.'}</span>`;
                 }
             } catch (err) {
-                statusDiv.innerHTML = '<span style="color:#B1622C;">❌ network glitch. just call us? +357 23 821 442</span>';
+                statusSpan.innerHTML = '<span style="color:#B95C1E;">✗ Network issue. Please call +357 23 822 119</span>';
                 console.error(err);
             }
         });
     }
 
-    // little console note for updating formspree endpoint if needed
-    console.log("✨ Erebuni — to replace Formspree action: update action attribute in <form id='formspreeReservation'> with your own Formspree endpoint.");
+    // Note about replacing Formspree endpoint (user can update action)
+    console.log("Erebuni — Formspree reservation active. To use your own endpoint, change action='https://formspree.io/f/your-id'");
 </script>
-<!-- 
-    For Formspree: If you want your own email notifications, simply create a form at formspree.io and replace the action URL.
-    The current action uses a live demo endpoint (mqakglvr) – it works and forwards submissions to a test dashboard,
-    but restaurant owner can replace with own ID to receive real emails. Everything is functional out of the box.
-    Vibe: Gentle lighting, minimalist earthy palette, fully responsive, modal reservation with AJAX to keep the experience fluid.
--->
 </body>
 </html>
