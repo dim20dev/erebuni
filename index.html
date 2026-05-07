@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Erebuni | Ayia Napa — Fine Dining & Armenian Gastronomy</title>
-    <!-- Google Fonts: elegant serif + modern sans -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <title>Erebuni | Ayia Napa — Armenian-Mediterranean Fine Dining</title>
+    <!-- Google Fonts: sophisticated serif + refined sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -16,59 +16,66 @@
         }
 
         body {
-            background-color: #FEFCF8;
+            background-color: #FDFBF7;
             font-family: 'Inter', sans-serif;
-            color: #2B2A27;
+            color: #2C2A27;
             line-height: 1.5;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
-        h1, h2, h3, .logo, .nav-logo, .hero-title, .section-subhead {
+        h1, h2, h3, .logo, .hero-title, .menu-name {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 500;
             letter-spacing: -0.02em;
         }
 
         .container {
-            max-width: 1380px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 48px;
         }
 
-        /* Professional Elegant Navigation */
+        /* ========== PROFESSIONAL NAVBAR WITH HAMBURGER (MOBILE OPTIMIZED) ========== */
         .site-header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 252, 245, 0.96);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 253, 247, 0.98);
+            backdrop-filter: blur(12px);
             z-index: 1000;
             transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.02);
+            border-bottom: 1px solid rgba(184, 134, 11, 0.15);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
         }
+
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 48px;
+            padding: 1.1rem 48px;
             max-width: 1440px;
             margin: 0 auto;
         }
+
         .logo {
             font-size: 1.9rem;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: -0.3px;
             color: #2C2A27;
             text-decoration: none;
+            z-index: 1001;
         }
         .logo span {
-            font-weight: 300;
-            color: #A67C2E;
+            font-weight: 400;
+            color: #B8860B;
+            font-size: 1.7rem;
         }
+
+        /* Desktop Navigation */
         .nav-links {
             display: flex;
-            gap: 2.8rem;
+            gap: 2.5rem;
             align-items: center;
             list-style: none;
         }
@@ -77,7 +84,7 @@
             font-size: 0.9rem;
             font-weight: 450;
             color: #3A3835;
-            transition: color 0.2s;
+            transition: color 0.25s;
             letter-spacing: 0.02em;
         }
         .nav-links a:hover {
@@ -86,9 +93,9 @@
         .reserve-cta {
             background: transparent;
             border: 1.2px solid #B8860B;
-            padding: 0.5rem 1.6rem;
+            padding: 0.55rem 1.8rem;
             border-radius: 40px;
-            font-weight: 500;
+            font-weight: 600;
             color: #B8860B !important;
             transition: all 0.25s;
         }
@@ -98,48 +105,122 @@
             border-color: #B8860B;
         }
 
-        /* Hero — elegant minimal with sophistication */
-        .hero {
-            min-height: 95vh;
-            background: linear-gradient(105deg, rgba(20, 20, 18, 0.55) 0%, rgba(0, 0, 0, 0.35) 100%), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format') center/cover no-repeat fixed;
-            display: flex;
-            align-items: center;
-            position: relative;
-            margin-top: 0;
+        /* Hamburger (mobile only) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
         }
-        .hero-overlay {
-            background: rgba(20, 18, 16, 0.45);
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: #2C2A27;
+            transition: 0.3s;
+        }
+        /* Mobile menu drawer */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 340px;
+            height: 100vh;
+            background: #FEFBF5;
+            backdrop-filter: blur(20px);
+            background-color: rgba(253, 250, 240, 0.98);
+            z-index: 999;
+            padding: 7rem 2rem 2rem;
+            transition: right 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: -8px 0 32px rgba(0,0,0,0.08);
+            border-left: 1px solid rgba(184,134,11,0.2);
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .mobile-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .mobile-menu ul li a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: #2C2A27;
+            letter-spacing: -0.2px;
+            transition: 0.2s;
+        }
+        .mobile-menu ul li a:hover {
+            color: #B8860B;
+            padding-left: 6px;
+        }
+        .mobile-reserve {
+            margin-top: 2.5rem;
+            display: inline-block;
+            background: #B8860B;
+            color: white !important;
+            padding: 0.8rem 2rem !important;
+            font-size: 1.2rem !important;
+            border-radius: 0px;
+            text-align: center;
+            font-family: 'Inter', sans-serif !important;
+            font-weight: 500 !important;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
+            background: rgba(0,0,0,0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.25s;
+            z-index: 998;
+        }
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 92vh;
+            background: linear-gradient(115deg, rgba(25, 24, 22, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format') center/cover no-repeat fixed;
             display: flex;
             align-items: center;
+            margin-top: 0;
         }
         .hero-content {
-            max-width: 700px;
+            max-width: 680px;
             padding: 2rem;
         }
         .hero-label {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             letter-spacing: 4px;
             text-transform: uppercase;
             color: #E9D6B0;
             margin-bottom: 1rem;
-            font-weight: 300;
+            font-weight: 400;
         }
         .hero-title {
             font-size: 5rem;
-            font-weight: 500;
+            font-weight: 600;
             color: white;
-            line-height: 1.1;
+            line-height: 1.05;
             margin-bottom: 1rem;
             text-shadow: 0 2px 12px rgba(0,0,0,0.2);
         }
         .hero-desc {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #F4EFE6;
             margin-bottom: 2rem;
             font-weight: 350;
-            max-width: 540px;
+            max-width: 520px;
         }
         .btn-primary {
             background: #B8860B;
@@ -150,7 +231,6 @@
             font-family: 'Inter', sans-serif;
             letter-spacing: 0.5px;
             color: white;
-            border-radius: 0px;
             cursor: pointer;
             transition: 0.2s;
             display: inline-flex;
@@ -162,39 +242,38 @@
             transform: translateY(-2px);
         }
 
-        /* Global Sections */
+        /* Sections */
         section {
             padding: 100px 0;
         }
-        .section-dark-bg {
-            background: #F9F6EF;
-        }
-        .section-white {
+        .section-light {
             background: #FFFFFF;
         }
+        .section-warm {
+            background: #FCF9F3;
+        }
         .section-title {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 500;
             margin-bottom: 1rem;
             color: #2C2A27;
-            letter-spacing: -0.02em;
         }
         .section-subtitle {
-            font-size: 1rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: #A67C2E;
-            margin-bottom: 0.75rem;
-            font-weight: 400;
+            color: #B8860B;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
         }
         .divider {
-            width: 60px;
+            width: 65px;
             height: 2px;
             background: #D4AF37;
             margin: 1.5rem 0 2rem 0;
         }
 
-        /* About / Philosophy */
+        /* About */
         .about-grid {
             display: flex;
             gap: 5rem;
@@ -206,16 +285,16 @@
         }
         .about-img {
             flex: 0.9;
-            border-radius: 4px;
+            border-radius: 2px;
             overflow: hidden;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
         }
         .about-img img {
             width: 100%;
             height: auto;
             display: block;
         }
-        .signature-line {
+        .quote {
             font-style: italic;
             font-size: 1.1rem;
             border-left: 3px solid #B8860B;
@@ -224,31 +303,25 @@
             color: #4A4742;
         }
 
-        /* Menu cards: refined */
+        /* Menu refined */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.2rem;
+            margin-top: 2rem;
         }
         .menu-item {
             background: white;
-            padding: 1.8rem;
-            border-bottom: 1px solid #EBE5DA;
+            padding: 1.4rem 1.8rem;
+            border-bottom: 1px solid #EBE3D5;
             transition: all 0.2s;
         }
-        .menu-item:hover {
-            background: #FEFAF3;
-            border-left: 3px solid #B8860B;
-            padding-left: 1.5rem;
-        }
         .menu-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 500;
+            font-size: 1.45rem;
+            font-weight: 600;
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
         .menu-price {
             color: #B8860B;
@@ -257,10 +330,9 @@
         .menu-desc {
             font-size: 0.85rem;
             color: #6C6A66;
-            letter-spacing: 0.2px;
         }
 
-        /* Gallery — refined grid */
+        /* Gallery */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -269,20 +341,19 @@
         }
         .gallery-card {
             overflow: hidden;
-            border-radius: 2px;
             transition: transform 0.3s;
         }
         .gallery-card img {
             width: 100%;
             height: 280px;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: 0.4s;
         }
         .gallery-card:hover img {
             transform: scale(1.02);
         }
 
-        /* Contact & Info */
+        /* Contact */
         .contact-row {
             display: flex;
             flex-wrap: wrap;
@@ -291,32 +362,19 @@
             padding: 3rem;
             justify-content: space-between;
         }
-        .contact-detail {
-            flex: 1;
-        }
         .contact-detail i {
             color: #B8860B;
             width: 32px;
-            font-size: 1.3rem;
-        }
-        .hours p {
-            margin: 0.4rem 0;
         }
 
-        /* Footer professional */
+        /* Footer */
         footer {
             background: #1F1E1C;
             color: #DCD7CE;
             padding: 3rem 0 2rem;
         }
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
 
-        /* Modal (refined) */
+        /* Modal refined */
         .modal {
             display: none;
             position: fixed;
@@ -324,26 +382,25 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(6px);
             align-items: center;
             justify-content: center;
             z-index: 1100;
         }
         .modal-card {
             background: #FFFEF9;
-            max-width: 560px;
+            max-width: 540px;
             width: 90%;
             padding: 2.5rem;
             position: relative;
-            border-radius: 0px;
-            box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+            box-shadow: 0 30px 45px rgba(0,0,0,0.2);
         }
         .close-modal {
             position: absolute;
             right: 1.5rem;
             top: 1rem;
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             cursor: pointer;
             color: #8E7A5B;
         }
@@ -351,7 +408,7 @@
             margin-bottom: 1.2rem;
         }
         .form-group label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 600;
@@ -375,8 +432,6 @@
             border: none;
             font-weight: 600;
             cursor: pointer;
-            transition: 0.2s;
-            margin-top: 0.5rem;
         }
         .form-status {
             margin-top: 1rem;
@@ -384,17 +439,24 @@
             font-size: 0.8rem;
         }
 
-        @media (max-width: 900px) {
-            .container { padding: 0 28px; }
+        @media (max-width: 950px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
             .nav-container { padding: 1rem 28px; }
-            .hero-title { font-size: 3.2rem; }
-            .gallery-grid { grid-template-columns: 1fr 1fr; }
-            .nav-links { gap: 1.3rem; }
+            .hero-title { font-size: 3.5rem; }
+            .gallery-grid { grid-template-columns: repeat(2,1fr); }
+            .container { padding: 0 28px; }
         }
-        @media (max-width: 650px) {
-            .nav-container { flex-direction: column; gap: 0.8rem; }
+        @media (max-width: 680px) {
+            .hero-title { font-size: 2.7rem; }
             .gallery-grid { grid-template-columns: 1fr; }
-            .section-title { font-size: 2.2rem; }
+            .section-title { font-size: 2.3rem; }
+            .about-grid { gap: 2rem; }
+            .contact-row { flex-direction: column; gap: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .hero-content { padding: 1rem; }
+            .btn-primary { padding: 0.8rem 1.8rem; }
         }
     </style>
 </head>
@@ -403,89 +465,80 @@
 <header class="site-header">
     <div class="nav-container">
         <a href="#" class="logo">EREBUNI <span>AYIA NAPA</span></a>
+        <!-- Desktop Navigation -->
         <ul class="nav-links">
             <li><a href="#philosophy">Philosophy</a></li>
             <li><a href="#menu">Menu</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#" id="navReserveModalBtn" class="reserve-cta">Reserve</a></li>
+            <li><a href="#" id="desktopReserveBtn" class="reserve-cta">Reserve</a></li>
+        </ul>
+        <!-- Hamburger (mobile) -->
+        <div class="hamburger" id="hamburgerBtn">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#philosophy" class="mobile-nav-link">Philosophy</a></li>
+            <li><a href="#menu" class="mobile-nav-link">Menu</a></li>
+            <li><a href="#gallery" class="mobile-nav-link">Gallery</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+            <li><a href="#" id="mobileReserveBtn" class="mobile-reserve">Reserve a Table</a></li>
         </ul>
     </div>
+    <div class="menu-overlay" id="menuOverlay"></div>
 </header>
 
 <main>
-    <!-- Hero section -->
     <section class="hero" id="home">
-        <div class="hero-overlay">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-label">Ayia Napa · Fine Gastronomy</div>
-                    <h1 class="hero-title">Erebuni<br>Table Culture</h1>
-                    <p class="hero-desc">Armenian soul meets Mediterranean elegance. An intimate journey of spice, heritage, and coastal serenity.</p>
-                    <button class="btn-primary" id="heroReserveBtn"><i class="fas fa-cutlery"></i> Secure your table</button>
-                </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">Ayia Napa · Gastronomy</div>
+                <h1 class="hero-title">Erebuni<br>Table Culture</h1>
+                <p class="hero-desc">Armenian soul meets Mediterranean elegance. An intimate journey of spice, warmth, and coastal serenity.</p>
+                <button class="btn-primary" id="heroReserveTrigger"><i class="fas fa-utensils"></i> Reserve your experience</button>
             </div>
         </div>
     </section>
 
-    <!-- Philosophy / About -->
-    <section id="philosophy" class="section-white">
+    <section id="philosophy" class="section-light">
         <div class="container">
             <div class="about-grid">
                 <div class="about-text">
-                    <div class="section-subtitle">Our Ethos</div>
-                    <h2 class="section-title">Craft, Fire & Warmth</h2>
+                    <div class="section-subtitle">Heritage & Craft</div>
+                    <h2 class="section-title">Warmth. Fire.</h2>
                     <div class="divider"></div>
-                    <p style="margin-bottom: 1rem;">At Erebuni, we honor ancient Armenian culinary traditions with the bounty of Cypriot land. Every dish is an ode to slow living — from wood-fired lavash to slow-cooked lamb shoulder, using organic produce and coastal inspirations.</p>
-                    <p>Chef Aram Manukyan brings 20 years of heritage-led cooking, creating a menu that whispers elegance and roars authenticity. Our terrace overlooks the gentle Napa breeze, while candlelight defines every evening.</p>
-                    <div class="signature-line">“Hospitality is not a service — it is a warm embrace.”</div>
+                    <p style="margin-bottom: 1rem;">At Erebuni, we honor ancient Armenian techniques with Cypriot soul. From wood-fired lavash to slow-braised lamb, each plate tells a story of tradition, passion, and elegance. Chef Aram Manukyan curates a seasonal menu that breathes refinement and authenticity.</p>
+                    <div class="quote">“Hospitality is not a service — it is a warm embrace around the table.”</div>
                 </div>
                 <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=2070&auto=format" alt="Elegant dining at Erebuni">
+                    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=2070&auto=format" alt="Erebuni refined dining">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Signature Menu -->
-    <section id="menu" class="section-dark-bg">
+    <section id="menu" class="section-warm">
         <div class="container">
             <div style="text-align: center;">
                 <div class="section-subtitle">Savour</div>
-                <h2 class="section-title">Seasonal Selections</h2>
+                <h2 class="section-title">Signature Selections</h2>
                 <div class="divider" style="margin-left: auto; margin-right: auto;"></div>
             </div>
             <div class="menu-grid">
-                <div class="menu-item">
-                    <div class="menu-name"><span>Manti Moussaka</span><span class="menu-price">€26</span></div>
-                    <div class="menu-desc">Armenian dumplings baked with béchamel, spiced lamb, eggplant</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-name"><span>Khashlama</span><span class="menu-price">€32</span></div>
-                    <div class="menu-desc">Slow-braised lamb shoulder, sweet peppers, tomato & fresh herbs</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-name"><span>Sea Bream ‘Napa’</span><span class="menu-price">€28</span></div>
-                    <div class="menu-desc">Grilled sea bream, citrus saffron emulsion, samphire, caper berries</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-name"><span>Erebuni Platter</span><span class="menu-price">€48</span></div>
-                    <div class="menu-desc">Lamb chops, chicken lule, beef kofta, grilled halloumi, lavash</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-name"><span>Dolma Yalanchi</span><span class="menu-price">€16</span></div>
-                    <div class="menu-desc">Vine leaves stuffed with spiced rice, currants, pine nuts, yogurt</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-name"><span>Gata & Baklava</span><span class="menu-price">€9</span></div>
-                    <div class="menu-desc">Traditional Armenian pastry + walnut baklava, orange-blossom honey</div>
-                </div>
+                <div class="menu-item"><div class="menu-name"><span>Manti Moussaka</span><span class="menu-price">€27</span></div><div class="menu-desc">Armenian dumplings, spiced lamb, béchamel & eggplant</div></div>
+                <div class="menu-item"><div class="menu-name"><span>Khashlama</span><span class="menu-price">€33</span></div><div class="menu-desc">Slow-braised lamb shoulder, sweet pepper, herb jus</div></div>
+                <div class="menu-item"><div class="menu-name"><span>Sea Bream ‘Napa’</span><span class="menu-price">€29</span></div><div class="menu-desc">Citrus saffron emulsion, samphire, caper berries</div></div>
+                <div class="menu-item"><div class="menu-name"><span>Erebuni Platter</span><span class="menu-price">€49</span></div><div class="menu-desc">Lamb chops, chicken lule, kofta, halloumi, lavash</div></div>
+                <div class="menu-item"><div class="menu-name"><span>Dolma Yalanchi</span><span class="menu-price">€17</span></div><div class="menu-desc">Vine leaves, spiced rice, currants, pine nuts, yogurt</div></div>
+                <div class="menu-item"><div class="menu-name"><span>Gata & Baklava</span><span class="menu-price">€9.5</span></div><div class="menu-desc">Armenian pastry + walnut baklava, orange-blossom honey</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery / Atmosphere Elegance -->
-    <section id="gallery" class="section-white">
+    <section id="gallery" class="section-light">
         <div class="container">
             <div style="text-align: center;">
                 <div class="section-subtitle">Visual Diary</div>
@@ -493,122 +546,105 @@
                 <div class="divider" style="margin-left: auto; margin-right: auto;"></div>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-card"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974&auto=format" alt="Erebuni interior"></div>
-                <div class="gallery-card"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format" alt="candlelit dinner"></div>
-                <div class="gallery-card"><img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2070&auto=format" alt="cocktail moment"></div>
+                <div class="gallery-card"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974&auto=format" alt="Interior elegance"></div>
+                <div class="gallery-card"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format" alt="Candlelit dinner"></div>
+                <div class="gallery-card"><img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2070&auto=format" alt="Signature cocktail"></div>
             </div>
         </div>
     </section>
 
-    <!-- Contact & Opening Hours -->
-    <section id="contact" class="section-dark-bg">
+    <section id="contact" class="section-warm">
         <div class="container">
             <div class="contact-row">
-                <div class="contact-detail">
-                    <i class="fas fa-map-marker-alt"></i> <strong>Address</strong><br>
-                    Kryou Nerou Avenue 12, Ayia Napa, 5330, Cyprus
-                </div>
-                <div class="contact-detail">
-                    <i class="fas fa-clock"></i> <strong>Opening Hours</strong><br>
-                    Mon–Sun: 12:30 – 23:30<br>
-                    Last orders: 22:45
-                </div>
-                <div class="contact-detail">
-                    <i class="fas fa-phone-alt"></i> <strong>Reservations</strong><br>
-                    +357 23 822 119<br>
-                    <i class="fas fa-envelope"></i> reservations@erebuni.com.cy
-                </div>
+                <div class="contact-detail"><i class="fas fa-map-marker-alt"></i> <strong>Address</strong><br>Kryou Nerou Avenue 12, Ayia Napa, 5330</div>
+                <div class="contact-detail"><i class="fas fa-clock"></i> <strong>Hours</strong><br>Mon–Sun: 12:30 – 23:30<br>Last order: 22:45</div>
+                <div class="contact-detail"><i class="fas fa-phone-alt"></i> <strong>Reservations</strong><br>+357 23 822 119<br> reservations@erebuni.com.cy</div>
             </div>
         </div>
     </section>
 </main>
 
 <footer>
-    <div class="container footer-inner">
-        <div>© 2025 Erebuni Restaurant — Ayia Napa. Fine Armenian-Mediterranean Dining.</div>
-        <div><i class="fab fa-instagram"></i> <i class="fab fa-facebook-f"></i> <i class="fab fa-tripadvisor"></i> &nbsp; @erebuni_napa</div>
+    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+        <div>© 2025 Erebuni — Ayia Napa. Fine Armenian-Mediterranean Dining.</div>
+        <div><i class="fab fa-instagram"></i> <i class="fab fa-facebook-f"></i> <i class="fab fa-tripadvisor"></i> @erebuni_napa</div>
     </div>
-    <div class="container" style="text-align: center; margin-top: 2rem; font-size: 0.7rem;">where elegance meets the warmth of Armenia</div>
 </footer>
 
-<!-- Reservation Modal (Formspree fully integrated) -->
+<!-- Reservation Modal (Formspree) -->
 <div id="reservationModal" class="modal">
     <div class="modal-card">
         <span class="close-modal" id="closeModalBtn">&times;</span>
-        <h3 style="font-family: 'Cormorant Garamond'; font-size: 1.9rem; margin-bottom: 0.5rem;">Request a table</h3>
-        <p style="margin-bottom: 1.5rem; color: #6C6A66;">We will confirm within 3 hours — service with sincerity.</p>
-        
-        <!-- FORMSPREE action URL (Working endpoint). To replace with personal endpoint, update action below. -->
-        <form id="reservationForm" action="https://formspree.io/f/mvgpgzqd" method="POST">
-            <div class="form-group">
-                <label>Full name *</label>
-                <input type="text" name="Guest name" required placeholder="e.g. Eleonora Rossi">
-            </div>
-            <div class="form-group">
-                <label>Email *</label>
-                <input type="email" name="Email" required placeholder="hello@example.com">
-            </div>
-            <div class="form-group">
-                <label>Phone number</label>
-                <input type="tel" name="Phone" placeholder="+357 99xxxxxx">
-            </div>
-            <div class="form-group">
-                <label>Reservation date *</label>
-                <input type="date" name="Date" required>
-            </div>
-            <div class="form-group">
-                <label>Preferred time *</label>
-                <select name="Time" required>
-                    <option>13:00</option><option>13:30</option><option>14:00</option>
-                    <option>18:30</option><option>19:00</option><option>19:30</option>
-                    <option>20:00</option><option>20:30</option><option>21:00</option>
-                    <option>21:30</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Number of guests *</label>
-                <select name="Guests" required>
-                    <option>1 guest</option><option>2 guests</option><option>3 guests</option>
-                    <option>4 guests</option><option>5 guests</option><option>6+ guests</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Special requests (allergies, preferences)</label>
-                <textarea name="Message" rows="2" placeholder="Any dietary notes or celebration..."></textarea>
-            </div>
-            <input type="hidden" name="_subject" value="New Elegant Reservation - Erebuni">
+        <h3 style="font-family: 'Cormorant Garamond'; font-size: 2rem;">Secure your table</h3>
+        <p style="margin-bottom: 1.2rem; color: #6C6A66;">We’ll confirm within 3 hours — genuine hospitality.</p>
+        <form id="reserveFormspree" action="https://formspree.io/f/mvgpgzqd" method="POST">
+            <div class="form-group"><label>Full name *</label><input type="text" name="Full name" required placeholder="e.g. Alexander Rossi"></div>
+            <div class="form-group"><label>Email *</label><input type="email" name="Email" required placeholder="hello@example.com"></div>
+            <div class="form-group"><label>Phone</label><input type="tel" name="Phone" placeholder="+357 99xxxxxx"></div>
+            <div class="form-group"><label>Date *</label><input type="date" name="Date" required></div>
+            <div class="form-group"><label>Time *</label><select name="Time" required><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option></select></div>
+            <div class="form-group"><label>Guests *</label><select name="Guests" required><option>1 guest</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 guests</option><option>6+ guests</option></select></div>
+            <div class="form-group"><label>Special requests</label><textarea name="Message" rows="2" placeholder="Dietary notes or celebration..."></textarea></div>
+            <input type="hidden" name="_subject" value="Erebuni Table Reservation">
             <input type="hidden" name="_replyto" value="email">
-            <button type="submit" class="submit-btn">Confirm reservation <i class="fas fa-arrow-right"></i></button>
-            <div id="formStatusMessage" class="form-status"></div>
+            <button type="submit" class="submit-btn">Confirm Reservation <i class="fas fa-arrow-right"></i></button>
+            <div id="formStatusMsg" class="form-status"></div>
         </form>
-        <p style="font-size: 0.7rem; margin-top: 1rem; text-align: center;">We respect privacy. No spam, only warm welcomes.</p>
     </div>
 </div>
 
 <script>
-    // Modal handling
+    // Mobile Navigation Logic
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('menuOverlay');
+    const closeMenu = () => {
+        mobileMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+    const openMenu = () => {
+        mobileMenu.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+    hamburger.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('active')) closeMenu();
+        else openMenu();
+    });
+    overlay.addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-nav-link, #mobileReserveBtn').forEach(link => {
+        link.addEventListener('click', (e) => {
+            closeMenu();
+            if (link.id === 'mobileReserveBtn') {
+                e.preventDefault();
+                openModal();
+            }
+        });
+    });
+
+    // Modal Logic
     const modal = document.getElementById('reservationModal');
-    const openHero = document.getElementById('heroReserveBtn');
-    const openNav = document.getElementById('navReserveModalBtn');
+    const heroBtn = document.getElementById('heroReserveTrigger');
+    const desktopReserve = document.getElementById('desktopReserveBtn');
+    const mobileReserveBtn = document.getElementById('mobileReserveBtn');
     const closeModalBtn = document.getElementById('closeModalBtn');
-
     function openModal() { modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
-    function closeModal() { modal.style.display = 'none'; document.body.style.overflow = 'auto'; }
+    function closeModalFunc() { modal.style.display = 'none'; document.body.style.overflow = ''; }
+    if(heroBtn) heroBtn.addEventListener('click', openModal);
+    if(desktopReserve) desktopReserve.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+    if(mobileReserveBtn) mobileReserveBtn.addEventListener('click', (e) => { e.preventDefault(); openModal(); closeMenu(); });
+    if(closeModalBtn) closeModalBtn.addEventListener('click', closeModalFunc);
+    window.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
 
-    if(openHero) openHero.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
-    if(openNav) openNav.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
-    if(closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-    window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-
-    // Formspree AJAX (professional, stays on page)
-    const form = document.getElementById('reservationForm');
-    const statusSpan = document.getElementById('formStatusMessage');
-
+    // Formspree AJAX submission (professional)
+    const form = document.getElementById('reserveFormspree');
+    const statusSpan = document.getElementById('formStatusMsg');
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
+            statusSpan.innerHTML = '<span style="color:#B8860B;">⏳ Sending reservation request...</span>';
             const formData = new FormData(form);
-            statusSpan.innerHTML = '<span style="color:#B8860B;">⏳ Sending reservation...</span>';
             try {
                 const response = await fetch(form.action, {
                     method: 'POST',
@@ -616,22 +652,39 @@
                     headers: { 'Accept': 'application/json' }
                 });
                 if (response.ok) {
-                    statusSpan.innerHTML = '<span style="color:#2F6B2F;">✓ Reservation request submitted. We will contact you shortly.</span>';
+                    statusSpan.innerHTML = '<span style="color:#2F6B2F;">✓ Reservation submitted. We will contact you shortly.</span>';
                     form.reset();
-                    setTimeout(() => { closeModal(); statusSpan.innerHTML = ''; }, 2500);
+                    setTimeout(() => { closeModalFunc(); statusSpan.innerHTML = ''; }, 2500);
                 } else {
-                    const errorData = await response.json();
-                    statusSpan.innerHTML = `<span style="color:#B95C1E;">✗ ${errorData.error || 'Please try again or call us directly.'}</span>`;
+                    const errData = await response.json();
+                    statusSpan.innerHTML = `<span style="color:#B95C1E;">✗ ${errData.error || 'Please try again or call us.'}</span>`;
                 }
-            } catch (err) {
-                statusSpan.innerHTML = '<span style="color:#B95C1E;">✗ Network issue. Please call +357 23 822 119</span>';
-                console.error(err);
+            } catch (error) {
+                statusSpan.innerHTML = '<span style="color:#B95C1E;">✗ Network error. Please call +357 23 822 119</span>';
             }
         });
     }
-
-    // Note about replacing Formspree endpoint (user can update action)
-    console.log("Erebuni — Formspree reservation active. To use your own endpoint, change action='https://formspree.io/f/your-id'");
+    // smooth scroll for anchor links & prevent default hash jumps
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === "#" || targetId === "") return;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({ behavior.scrollIntoView({ behavior: ': 'smoothsmooth', block', block: ': 'start'start' });
+                });
+                closeMenu closeMenu();
+           ();
+            }
+        }
+        });
+    });
+    });
+</ });
 </script>
-</body>
+script>
+</body</body>
+</>
 </html>
+html>
