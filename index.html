@@ -1,15 +1,12 @@
-You're right — let me create something truly exceptional. A premium, professional restaurant website with sophisticated design, smooth interactions, and a fully working Formspree reservation system.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
     <title>Erebuni | Ayia Napa – Armenian Mediterranean Fine Dining</title>
     <meta name="description" content="Erebuni Restaurant in Ayia Napa offers authentic Armenian & Mediterranean cuisine. Elegant setting, premium ingredients, unforgettable dining experience.">
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -21,11 +18,13 @@ You're right — let me create something truly exceptional. A premium, professio
         :root {
             --gold: #C6A43F;
             --gold-dark: #A8882E;
+            --gold-light: #DDB95A;
             --dark: #1A1A1A;
             --dark-soft: #2A2A2A;
             --light: #FAFAF7;
             --cream: #F5F2EB;
             --gray: #6B6B6B;
+            --gray-light: #9A9A9A;
             --white: #FFFFFF;
             --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
@@ -47,10 +46,15 @@ You're right — let me create something truly exceptional. A premium, professio
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 60px;
+            padding: 0 24px;
         }
 
-        /* Custom Cursor & Scroll */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+        }
+
         ::selection {
             background: var(--gold);
             color: var(--dark);
@@ -62,32 +66,42 @@ You're right — let me create something truly exceptional. A premium, professio
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 1.5rem 0;
+            padding: 1rem 0;
             transition: var(--transition);
             background: transparent;
         }
         .navbar.scrolled {
-            background: rgba(26, 26, 26, 0.95);
+            background: rgba(26, 26, 26, 0.96);
             backdrop-filter: blur(12px);
-            padding: 0.8rem 0;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+            padding: 0.7rem 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
         }
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 60px;
+            padding: 0 24px;
             max-width: 1520px;
             margin: 0 auto;
         }
+        @media (min-width: 1400px) {
+            .nav-container {
+                padding: 0 60px;
+            }
+        }
         .logo {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 600;
             letter-spacing: -0.5px;
             color: var(--white);
             text-decoration: none;
             font-family: 'Cormorant Garamond', serif;
             transition: var(--transition);
+        }
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.3rem;
+            }
         }
         .navbar.scrolled .logo {
             color: var(--white);
@@ -98,13 +112,21 @@ You're right — let me create something truly exceptional. A premium, professio
         }
         .nav-links {
             display: flex;
-            gap: 3rem;
+            gap: 2rem;
             list-style: none;
             align-items: center;
         }
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            .nav-links li:not(:last-child) {
+                display: none;
+            }
+        }
         .nav-links a {
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -120,14 +142,17 @@ You're right — let me create something truly exceptional. A premium, professio
         .reserve-btn-nav {
             background: transparent;
             border: 1.5px solid var(--gold);
-            padding: 0.6rem 1.8rem;
+            padding: 0.5rem 1.5rem;
             border-radius: 0;
             color: var(--white) !important;
             transition: var(--transition);
+            font-size: 0.75rem !important;
         }
-        .navbar.scrolled .reserve-btn-nav {
-            color: var(--white) !important;
-            border-color: var(--gold);
+        @media (max-width: 768px) {
+            .reserve-btn-nav {
+                padding: 0.4rem 1rem;
+                font-size: 0.7rem !important;
+            }
         }
         .reserve-btn-nav:hover {
             background: var(--gold);
@@ -138,7 +163,7 @@ You're right — let me create something truly exceptional. A premium, professio
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 100%), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format') center/cover no-repeat;
             display: flex;
             align-items: center;
             position: relative;
@@ -146,38 +171,55 @@ You're right — let me create something truly exceptional. A premium, professio
         .hero-content {
             max-width: 750px;
             animation: fadeUp 1s ease-out;
+            padding: 0 20px;
         }
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .hero-tag {
-            font-size: 0.75rem;
-            letter-spacing: 6px;
+            font-size: 0.7rem;
+            letter-spacing: 5px;
             text-transform: uppercase;
             color: var(--gold);
             margin-bottom: 1rem;
             font-weight: 600;
         }
+        @media (max-width: 768px) {
+            .hero-tag {
+                font-size: 0.6rem;
+                letter-spacing: 3px;
+            }
+        }
         .hero h1 {
-            font-size: 5.5rem;
+            font-size: 4.5rem;
             font-weight: 600;
             color: var(--white);
             line-height: 1.1;
             margin-bottom: 1.2rem;
         }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: rgba(255,255,255,0.9);
             margin-bottom: 2rem;
             max-width: 550px;
             line-height: 1.6;
         }
+        @media (max-width: 768px) {
+            .hero p {
+                font-size: 0.9rem;
+            }
+        }
         .btn-primary {
             background: var(--gold);
             border: none;
-            padding: 1rem 2.5rem;
-            font-size: 0.85rem;
+            padding: 0.9rem 2rem;
+            font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
@@ -186,25 +228,34 @@ You're right — let me create something truly exceptional. A premium, professio
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
         .btn-primary:hover {
             background: var(--gold-dark);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
         .btn-outline {
             background: transparent;
             border: 1.5px solid var(--gold);
-            padding: 1rem 2.5rem;
-            font-size: 0.85rem;
+            padding: 0.9rem 2rem;
+            font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: var(--white);
             cursor: pointer;
             transition: var(--transition);
-            margin-left: 1rem;
+            margin-left: 0.8rem;
+        }
+        @media (max-width: 580px) {
+            .btn-outline {
+                display: none;
+            }
+            .btn-primary {
+                width: 100%;
+                justify-content: center;
+            }
         }
         .btn-outline:hover {
             background: var(--gold);
@@ -213,7 +264,12 @@ You're right — let me create something truly exceptional. A premium, professio
 
         /* Sections */
         section {
-            padding: 120px 0;
+            padding: 80px 0;
+        }
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
         }
         .section-dark {
             background: var(--dark);
@@ -226,13 +282,18 @@ You're right — let me create something truly exceptional. A premium, professio
             background: var(--cream);
         }
         .section-title {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 500;
             margin-bottom: 1rem;
             letter-spacing: -1px;
         }
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
         .section-subtitle {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--gold);
@@ -245,13 +306,23 @@ You're right — let me create something truly exceptional. A premium, professio
             background: var(--gold);
             margin: 1.5rem 0 2rem 0;
         }
+        .center-line {
+            margin-left: auto;
+            margin-right: auto;
+        }
 
         /* About Section */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 5rem;
+            gap: 3rem;
             align-items: center;
+        }
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
         }
         .about-image {
             position: relative;
@@ -274,7 +345,7 @@ You're right — let me create something truly exceptional. A premium, professio
         }
         .signature {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-style: italic;
             border-left: 3px solid var(--gold);
             padding-left: 1.5rem;
@@ -282,18 +353,23 @@ You're right — let me create something truly exceptional. A premium, professio
             color: #4A4A4A;
         }
 
-        /* Menu Section - Refined */
+        /* Menu Section with See More/Less */
         .menu-categories {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
             flex-wrap: wrap;
+        }
+        @media (max-width: 640px) {
+            .menu-categories {
+                gap: 1rem;
+            }
         }
         .category-btn {
             background: transparent;
             border: none;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -318,40 +394,83 @@ You're right — let me create something truly exceptional. A premium, professio
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
         }
         .menu-item {
             border-bottom: 1px solid rgba(0,0,0,0.08);
-            padding: 1.2rem 0;
+            padding: 1rem 0;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             transition: var(--transition);
         }
         .menu-item:hover {
-            padding-left: 1rem;
+            padding-left: 0.8rem;
             border-bottom-color: var(--gold);
         }
+        .menu-info {
+            flex: 1;
+            padding-right: 1rem;
+        }
         .menu-info h4 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             margin-bottom: 0.3rem;
         }
         .menu-info p {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--gray);
+            line-height: 1.4;
         }
         .menu-price {
             font-weight: 600;
             color: var(--gold);
-            font-size: 1rem;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .see-more-btn {
+            display: block;
+            margin: 2rem auto 0;
+            background: transparent;
+            border: 1px solid var(--gold);
+            padding: 0.7rem 2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--dark);
+        }
+        .see-more-btn:hover {
+            background: var(--gold);
+            color: var(--white);
+        }
+        .menu-item.hidden-item {
+            display: none;
         }
 
         /* Gallery */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            gap: 1.2rem;
+        }
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
         }
         .gallery-item {
             position: relative;
@@ -374,12 +493,16 @@ You're right — let me create something truly exceptional. A premium, professio
             left: 0;
             right: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            padding: 1.5rem;
+            padding: 1rem;
             opacity: 0;
             transition: var(--transition);
         }
         .gallery-item:hover .gallery-overlay {
             opacity: 1;
+        }
+        .gallery-overlay span {
+            color: white;
+            font-size: 0.8rem;
         }
 
         /* Reservation Info */
@@ -389,20 +512,27 @@ You're right — let me create something truly exceptional. A premium, professio
             gap: 2rem;
             text-align: center;
             background: var(--dark);
-            padding: 4rem;
+            padding: 3rem;
             border-radius: 0;
         }
+        @media (max-width: 768px) {
+            .reservation-info {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 2rem;
+            }
+        }
         .info-card i {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--gold);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
         .info-card h4 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-bottom: 0.5rem;
         }
         .info-card p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #aaa;
         }
 
@@ -410,7 +540,7 @@ You're right — let me create something truly exceptional. A premium, professio
         footer {
             background: #111;
             color: #999;
-            padding: 3rem 0 2rem;
+            padding: 2.5rem 0 1.5rem;
         }
         .footer-grid {
             display: flex;
@@ -419,19 +549,34 @@ You're right — let me create something truly exceptional. A premium, professio
             gap: 2rem;
             margin-bottom: 2rem;
         }
+        @media (max-width: 768px) {
+            .footer-grid {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
         .footer-col h4 {
             color: var(--white);
-            margin-bottom: 1rem;
-            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+        .footer-col p {
+            font-size: 0.8rem;
         }
         .social-icons {
             display: flex;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 0.8rem;
+        }
+        @media (max-width: 768px) {
+            .social-icons {
+                justify-content: center;
+            }
         }
         .social-icons a {
             color: #999;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             transition: var(--transition);
         }
         .social-icons a:hover {
@@ -439,9 +584,9 @@ You're right — let me create something truly exceptional. A premium, professio
         }
         .copyright {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 1.5rem;
             border-top: 1px solid #222;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
         }
 
         /* Modal */
@@ -452,7 +597,7 @@ You're right — let me create something truly exceptional. A premium, professio
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.85);
+            background: rgba(0,0,0,0.9);
             backdrop-filter: blur(8px);
             z-index: 1100;
             align-items: center;
@@ -460,17 +605,24 @@ You're right — let me create something truly exceptional. A premium, professio
         }
         .modal-content {
             background: var(--white);
-            max-width: 520px;
+            max-width: 500px;
             width: 90%;
-            padding: 2.5rem;
+            padding: 2rem;
             position: relative;
             animation: fadeUp 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 1.5rem;
+            }
         }
         .close-modal {
             position: absolute;
-            right: 1.5rem;
-            top: 1rem;
-            font-size: 1.8rem;
+            right: 1.2rem;
+            top: 0.8rem;
+            font-size: 1.6rem;
             cursor: pointer;
             color: #999;
             transition: var(--transition);
@@ -479,24 +631,25 @@ You're right — let me create something truly exceptional. A premium, professio
             color: var(--dark);
         }
         .form-group {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
         .form-group label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
             display: block;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.3rem;
             color: #555;
         }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
+            padding: 0.7rem;
             border: 1px solid #ddd;
             background: var(--white);
             font-family: 'Plus Jakarta Sans', sans-serif;
             transition: var(--transition);
+            font-size: 0.85rem;
         }
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
@@ -506,7 +659,7 @@ You're right — let me create something truly exceptional. A premium, professio
             background: var(--dark);
             color: var(--white);
             width: 100%;
-            padding: 0.9rem;
+            padding: 0.8rem;
             border: none;
             font-weight: 600;
             letter-spacing: 1px;
@@ -519,25 +672,9 @@ You're right — let me create something truly exceptional. A premium, professio
             color: var(--dark);
         }
         .form-status {
-            margin-top: 1rem;
+            margin-top: 0.8rem;
             text-align: center;
-            font-size: 0.8rem;
-        }
-
-        @media (max-width: 992px) {
-            .container { padding: 0 30px; }
-            .nav-container { padding: 0 30px; }
-            .hero h1 { font-size: 3.5rem; }
-            .about-grid, .menu-grid, .gallery-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .reservation-info { grid-template-columns: 1fr; gap: 1.5rem; }
-            .section-title { font-size: 2.5rem; }
-        }
-        @media (max-width: 768px) {
-            .nav-links { gap: 1.2rem; }
-            .nav-links li:not(:last-child) { display: none; }
-            .nav-links li:last-child { display: block; }
-            .hero h1 { font-size: 2.8rem; }
-            .btn-outline { display: none; }
+            font-size: 0.75rem;
         }
     </style>
 </head>
@@ -564,10 +701,10 @@ You're right — let me create something truly exceptional. A premium, professio
             <h1>Where Armenia<br>Meets The Sea</h1>
             <p>Embark on a culinary journey through ancient spices, coastal flavors, and timeless elegance. Erebuni — a sanctuary for those who appreciate true gastronomy.</p>
             <button class="btn-primary" id="heroReserveTrigger"><i class="fas fa-glass-cheers"></i> Reserve a Table</button>
-            <button class="btn-outline" onclick="window.location.href='#menu'">Explore Menu</button>
+            <button class="btn-outline" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">Explore Menu</button>
         </div>
     </div>
-</nav>
+</section>
 
 <!-- About -->
 <section id="about" class="section-light">
@@ -582,29 +719,29 @@ You're right — let me create something truly exceptional. A premium, professio
                 <div class="gold-line"></div>
                 <p>Erebuni is more than a restaurant — it's a love letter to Armenian culinary traditions, reimagined with Mediterranean soul. Chef Aram Manukyan brings generations of family recipes, using only the finest seasonal ingredients from Cypriot farmers and the surrounding waters.</p>
                 <p>Every dish tells a story: from hand-rolled manti to slow-roasted lamb, from wild herbs to artisanal wines. Our open kitchen invites you to witness the craftsmanship behind each plate.</p>
-                <div class="signature">“Hospitality is sacred. We treat every guest as family.” — Aram Manukyan, Chef & Patron</div>
+                <div class="signature">"Hospitality is sacred. We treat every guest as family." — Aram Manukyan, Chef & Patron</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Menu -->
+<!-- Menu Section with See More / See Less -->
 <section id="menu" class="section-cream">
     <div class="container">
         <div style="text-align: center;">
             <div class="section-subtitle">Signature Selections</div>
             <h2 class="section-title">Soulful Cuisine</h2>
-            <div class="gold-line" style="margin-left: auto; margin-right: auto;"></div>
+            <div class="gold-line center-line"></div>
         </div>
         <div class="menu-categories">
             <button class="category-btn active" data-category="all">All</button>
             <button class="category-btn" data-category="starters">Starters</button>
             <button class="category-btn" data-category="mains">Main Courses</button>
             <button class="category-btn" data-category="desserts">Desserts</button>
+            <button class="category-btn" data-category="drinks">Drinks</button>
         </div>
-        <div class="menu-grid" id="menuGrid">
-            <!-- Menu items will be populated via JS -->
-        </div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <button class="see-more-btn" id="seeMoreBtn">See More</button>
     </div>
 </section>
 
@@ -614,12 +751,12 @@ You're right — let me create something truly exceptional. A premium, professio
         <div style="text-align: center;">
             <div class="section-subtitle">Visual Diary</div>
             <h2 class="section-title">Moments at Erebuni</h2>
-            <div class="gold-line" style="margin-left: auto; margin-right: auto;"></div>
+            <div class="gold-line center-line"></div>
         </div>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format" alt="Dining room"><div class="gallery-overlay"><span style="color:white;">Elegant Ambience</span></div></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2080&auto=format" alt="Grilled dishes"><div class="gallery-overlay"><span style="color:white;">Signature Grill</span></div></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2070&auto=format" alt="Signature cocktail"><div class="gallery-overlay"><span style="color:white;">Handcrafted Cocktails</span></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format" alt="Dining room"><div class="gallery-overlay"><span>Elegant Ambience</span></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2080&auto=format" alt="Grilled dishes"><div class="gallery-overlay"><span>Signature Grill</span></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2070&auto=format" alt="Signature cocktail"><div class="gallery-overlay"><span>Handcrafted Cocktails</span></div></div>
         </div>
     </div>
 </section>
@@ -680,8 +817,8 @@ You're right — let me create something truly exceptional. A premium, professio
 <div id="reservationModal" class="modal">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
-        <h3 style="font-family: 'Cormorant Garamond'; font-size: 2rem; margin-bottom: 0.5rem;">Reserve a Table</h3>
-        <p style="margin-bottom: 1.5rem; color: #666;">We’ll confirm your booking within 2 hours.</p>
+        <h3 style="font-family: 'Cormorant Garamond'; font-size: 1.8rem; margin-bottom: 0.5rem;">Reserve a Table</h3>
+        <p style="margin-bottom: 1.2rem; color: #666; font-size: 0.85rem;">We'll confirm your booking within 2 hours.</p>
         <form id="reservationForm" action="https://formspree.io/f/mkgngrrr" method="POST">
             <div class="form-group">
                 <label>Full Name *</label>
@@ -736,31 +873,45 @@ You're right — let me create something truly exceptional. A premium, professio
         }
     });
 
-    // Menu Data
+    // Menu Data with more items for See More/Less
     const menuData = {
         starters: [
             { name: "Hummus & Lavash", desc: "Creamy chickpea, tahini, smoked paprika, warm lavash", price: "€12", category: "starters" },
             { name: "Manti Dumplings", desc: "Armenian beef dumplings, garlic yogurt, burnt butter", price: "€16", category: "starters" },
-            { name: "Octopus Carpaccio", desc: "Thinly sliced octopus, lemon, caper, olive oil", price: "€19", category: "starters" }
+            { name: "Octopus Carpaccio", desc: "Thinly sliced octopus, lemon, caper, olive oil", price: "€19", category: "starters" },
+            { name: "Smoked Eggplant Salad", desc: "Charred eggplant, walnuts, pomegranate molasses", price: "€11", category: "starters" }
         ],
         mains: [
             { name: "Lamb Khashlama", desc: "Slow-braised lamb shoulder, vegetables, aromatic broth", price: "€34", category: "mains" },
             { name: "Sea Bream Levantine", desc: "Whole grilled sea bream, za'atar, citrus, saffron", price: "€29", category: "mains" },
             { name: "Erebuni Mixed Grill", desc: "Lamb chops, chicken lule, kofta, halloumi", price: "€45", category: "mains" },
-            { name: "Moussaka", desc: "Eggplant, spiced lamb, béchamel, aged cheese", price: "€24", category: "mains" }
+            { name: "Moussaka", desc: "Eggplant, spiced lamb, béchamel, aged cheese", price: "€24", category: "mains" },
+            { name: "Chicken Shashlik", desc: "Marinated chicken skewers, grilled vegetables, sumac", price: "€22", category: "mains" },
+            { name: "Vegetarian Dolma", desc: "Grape leaves stuffed with rice, herbs, pine nuts", price: "€18", category: "mains" }
         ],
         desserts: [
             { name: "Walnut Baklava", desc: "Filo, walnuts, orange blossom honey", price: "€9", category: "desserts" },
             { name: "Armenian Gata", desc: "Sweet bread, butter, vanilla, powdered sugar", price: "€8", category: "desserts" }
+        ],
+        drinks: [
+            { name: "Armenian Brandy", desc: "Aged 10 years, smooth and aromatic", price: "€12", category: "drinks" },
+            { name: "Cypriot Commandaria", desc: "Sweet dessert wine, 15 year old", price: "€9", category: "drinks" }
         ]
     };
     
-    const allMenuItems = [...menuData.starters, ...menuData.mains, ...menuData.desserts];
+    const allMenuItems = [...menuData.starters, ...menuData.mains, ...menuData.desserts, ...menuData.drinks];
+    let itemsToShow = 4; // Initially show 4 items per category filter
+    let currentCategory = "all";
+    let currentFilteredItems = [...allMenuItems];
     
-    function renderMenu(category = "all") {
+    function renderMenu() {
         const grid = document.getElementById('menuGrid');
-        let items = category === "all" ? allMenuItems : allMenuItems.filter(item => item.category === category);
-        grid.innerHTML = items.map(item => `
+        let items = currentCategory === "all" ? allMenuItems : allMenuItems.filter(item => item.category === currentCategory);
+        currentFilteredItems = items;
+        const visibleItems = items.slice(0, itemsToShow);
+        const hasMore = items.length > itemsToShow;
+        
+        grid.innerHTML = visibleItems.map(item => `
             <div class="menu-item">
                 <div class="menu-info">
                     <h4>${item.name}</h4>
@@ -769,19 +920,38 @@ You're right — let me create something truly exceptional. A premium, professio
                 <div class="menu-price">${item.price}</div>
             </div>
         `).join('');
+        
+        const seeMoreBtn = document.getElementById('seeMoreBtn');
+        if (hasMore) {
+            seeMoreBtn.style.display = 'block';
+            seeMoreBtn.textContent = itemsToShow >= items.length ? 'See Less' : 'See More';
+        } else {
+            seeMoreBtn.style.display = items.length > 4 ? 'block' : 'none';
+            if (items.length <= 4) seeMoreBtn.style.display = 'none';
+        }
     }
     
-    renderMenu();
+    document.getElementById('seeMoreBtn').addEventListener('click', () => {
+        if (itemsToShow >= currentFilteredItems.length) {
+            itemsToShow = 4;
+        } else {
+            itemsToShow = currentFilteredItems.length;
+        }
+        renderMenu();
+    });
     
     const categoryBtns = document.querySelectorAll('.category-btn');
     categoryBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             categoryBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            const category = btn.getAttribute('data-category');
-            renderMenu(category);
+            currentCategory = btn.getAttribute('data-category');
+            itemsToShow = 4;
+            renderMenu();
         });
     });
+    
+    renderMenu();
     
     // Modal Handling
     const modal = document.getElementById('reservationModal');
@@ -812,7 +982,7 @@ You're right — let me create something truly exceptional. A premium, professio
                 headers: { 'Accept': 'application/json' }
             });
             if (response.ok) {
-                statusDiv.innerHTML = '<span style="color:green;">✓ Reservation confirmed! We’ll contact you shortly.</span>';
+                statusDiv.innerHTML = '<span style="color:green;">✓ Reservation confirmed! We\'ll contact you shortly.</span>';
                 form.reset();
                 setTimeout(() => { closeModal(); statusDiv.innerHTML = ''; }, 2500);
             } else {
@@ -825,4 +995,3 @@ You're right — let me create something truly exceptional. A premium, professio
 </script>
 </body>
 </html>
-```
